@@ -7,7 +7,6 @@ Related tutorials: :doc:`../tutorials/configs`, :doc:`../tutorials/extend`.
     :members:
     :undoc-members:
     :show-inheritance:
-    :inherited-members:
 
 
 Yaml Config References
@@ -16,4 +15,4 @@ Yaml Config References
 .. literalinclude:: ../../detectron2/config/defaults.py
   :language: python
   :linenos:
-  :lines: 4-
+  :lines: 7-

@@ -11,7 +11,7 @@ import torch
 from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
 
 torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
-assert torch_ver >= [1, 7], "Requires PyTorch >= 1.7"
+assert torch_ver >= [1, 8], "Requires PyTorch >= 1.8"
 
 
 def get_version():
@@ -168,7 +168,7 @@ setup(
         # choosing the proper pypi package name at https://github.com/skvark/opencv-python
         # The following are pure-python dependencies that should be easily installable
         "termcolor>=1.1",
-        "yacs>=0.1.6",
+        "yacs>=0.1.8",
         "tabulate",
         "cloudpickle",
         "tqdm>4.29.0",
@@ -177,7 +177,7 @@ setup(
         # NOTE: when updating fvcore/iopath version, make sure fvcore depends
         # on compatible version of iopath.
         "fvcore>=0.1.5,<0.1.6",  # required like this to make it pip installable
-        "iopath>=0.1.7,<0.1.9",
+        "iopath>=0.1.7,<0.1.10",
         "future",  # used by caffe2
         "pydot",  # used to save caffe2 SVGs
         "dataclasses; python_version<'3.7'",
