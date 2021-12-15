@@ -421,7 +421,7 @@ class Visualizer:
         )
         return self.output
 
-    def draw_sem_seg(self, sem_seg, area_threshold=None, alpha=0.8):
+    def draw_sem_seg(self, sem_seg, area_threshold=None, alpha=0.8, no_object_training=False):
         """
         Draw semantic segmentation predictions/labels.
 
@@ -436,9 +436,12 @@ class Visualizer:
         """
         if isinstance(sem_seg, torch.Tensor):
             sem_seg = sem_seg.numpy()
+        if no_object_training:
+            sem_seg += 1 # shift 1 back to labels list
         labels, areas = np.unique(sem_seg, return_counts=True)
         sorted_idxs = np.argsort(-areas).tolist()
         labels = labels[sorted_idxs]
+        
         for label in filter(lambda l: l < len(self.metadata.stuff_classes), labels):
             try:
                 mask_color = [x / 255 for x in self.metadata.stuff_colors[label]]
